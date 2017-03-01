@@ -1,8 +1,12 @@
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { Component } from '@angular/core';
 
-import { AppModule } from './app/app.module';
-
-platformBrowserDynamic().bootstrapModule(AppModule);
+@Component({
+  template:  `
+    <h2>CRISIS CENTER</h2>
+    <router-outlet></router-outlet>
+  `
+})
+export class CrisisCenterComponent { }
 
 
 /*
