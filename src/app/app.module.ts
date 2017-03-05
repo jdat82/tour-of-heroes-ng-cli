@@ -1,35 +1,26 @@
 import { NgModule }       from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
-import { FormsModule }    from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { AppComponent }            from './app.component';
 import { AppRoutingModule }        from './app-routing.module';
 
 import { HeroesModule }            from './heroes/heroes.module';
-import { ComposeMessageComponent } from './compose-message.component';
-import { LoginRoutingModule }      from './login-routing.module';
-import { LoginComponent }          from './login.component';
 import { PageNotFoundComponent }   from './not-found.component';
-
-import { DialogService }           from './dialog.service';
+import { CoreModule } from "./core/core.module";
+import { LoginModule } from "./authentication/login.module";
 
 @NgModule({
   imports: [
     BrowserModule,
-    FormsModule,
+    CoreModule,
     HeroesModule,
-    LoginRoutingModule,
+    LoginModule,
     AppRoutingModule
   ],
   declarations: [
     AppComponent,
-    ComposeMessageComponent,
-    LoginComponent,
     PageNotFoundComponent
-  ],
-  providers: [
-    DialogService
   ],
   bootstrap: [ AppComponent ]
 })
