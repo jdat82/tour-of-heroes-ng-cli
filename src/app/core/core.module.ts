@@ -2,8 +2,9 @@ import { NgModule } from '@angular/core';
 
 import { DialogService } from './dialog.service';
 import { ComposeMessageComponent } from "./compose-message.component";
-import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
+import { PageNotFoundComponent } from "./not-found.component";
+import { CommonModule } from "@angular/common";
 
 @NgModule({
   imports:[
@@ -11,13 +12,13 @@ import { FormsModule } from "@angular/forms";
     FormsModule
   ],
   declarations:[
-    ComposeMessageComponent
+    ComposeMessageComponent,
+    PageNotFoundComponent
   ],
   providers: [
     DialogService
   ],
   exports: [
-    ComposeMessageComponent
   ]
 })
 export class CoreModule {}

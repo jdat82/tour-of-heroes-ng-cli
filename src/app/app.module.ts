@@ -6,8 +6,9 @@ import { AppComponent }            from './app.component';
 import { AppRoutingModule }        from './app-routing.module';
 
 import { HeroesModule }            from './heroes/heroes.module';
-import { PageNotFoundComponent }   from './not-found.component';
+
 import { CoreModule } from "./core/core.module";
+
 import { LoginModule } from "./authentication/login.module";
 
 @NgModule({
@@ -19,8 +20,7 @@ import { LoginModule } from "./authentication/login.module";
     AppRoutingModule
   ],
   declarations: [
-    AppComponent,
-    PageNotFoundComponent
+    AppComponent
   ],
   bootstrap: [ AppComponent ]
 })

@@ -2,7 +2,7 @@ import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { ComposeMessageComponent }  from './core/compose-message.component';
-import { PageNotFoundComponent }    from './not-found.component';
+import { PageNotFoundComponent }    from './core/not-found.component';
 
 import { CanDeactivateGuard }       from './can-deactivate-guard.service';
 import { AuthGuard }                from './authentication/auth-guard.service';
