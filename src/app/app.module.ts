@@ -10,6 +10,9 @@ import { HeroesModule }            from './heroes/heroes.module';
 import { CoreModule } from "./core/core.module";
 
 import { LoginModule } from "./authentication/login.module";
+import { environment } from "../environments/environment";
+
+console.debug('Environment:', environment);
 
 @NgModule({
   imports: [
