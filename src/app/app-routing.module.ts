@@ -6,7 +6,7 @@ import { PageNotFoundComponent }    from './core/not-found.component';
 
 import { CanDeactivateGuard }       from './can-deactivate-guard.service';
 import { AuthGuard }                from './authentication/auth-guard.service';
-import { SelectivePreloadingStrategy } from './selective-preloading-strategy';
+import { SelectivePreloadingStrategy } from './selective-preloading-strategy.service';
 
 const appRoutes: Routes = [
   {

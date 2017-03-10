@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import HeroActions from "./core/hero/hero.action";
+import { Store } from "@ngrx/store";
+import { AppState } from "./root.reducer";
 
 @Component({
   selector: 'my-app',
@@ -15,7 +18,13 @@ import { Component } from '@angular/core';
     <router-outlet name="popup"></router-outlet>
   `
 })
-export class AppComponent {
+export class AppComponent implements  OnInit {
+
+  constructor(private store:Store<AppState>){}
+
+  ngOnInit(){
+    this.store.dispatch(HeroActions.loadHeroes());
+  }
 }
 
 

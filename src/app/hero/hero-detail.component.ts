@@ -2,9 +2,9 @@ import 'rxjs/add/operator/switchMap';
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
-import { slideInDownAnimation } from '../animations';
-
-import { Hero, HeroService }  from './hero.service';
+import { HeroService }  from './hero.service';
+import { Hero } from "../core/hero/hero.model";
+import { slideInDownAnimation } from "../animations";
 
 @Component({
   template: `
