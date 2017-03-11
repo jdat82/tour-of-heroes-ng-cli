@@ -1,7 +1,7 @@
 import "rxjs/add/operator/switchMap";
 import { Observable } from "rxjs/Observable";
 import { Component } from "@angular/core";
-import { Router, ActivatedRoute } from "@angular/router";
+import { Router } from "@angular/router";
 import { Store } from "@ngrx/store";
 import { Hero } from "../core/hero/hero.model";
 import { AppState } from "../root.reducer";
@@ -22,13 +22,11 @@ import { AppState } from "../root.reducer";
 })
 export class HeroListComponent {
 
-  public heroes$:Observable<Hero[]>;
+  heroes$:Observable<Hero[]>;
 
   private selectedId:number;
 
-  constructor(private store:Store<AppState>,
-              private route:ActivatedRoute,
-              private router:Router) {
+  constructor(private store:Store<AppState>, private router:Router) {
     this.heroes$ = this.store.select('heroList');
   }
 

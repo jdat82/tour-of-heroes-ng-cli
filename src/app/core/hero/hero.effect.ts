@@ -14,7 +14,12 @@ export class HeroEffects {
   public loadHeroes$ = this.update$
     .ofType(HeroActions.LOAD_HEROES)
     .switchMap(() => this.heroService.getHeroes())
-    .distinctUntilChanged()
-    .map((heroes) => HeroActions.loadHeroesSuccess(heroes));
+    .map(heroes => HeroActions.loadHeroesSuccess(heroes));
+
+  @Effect()
+  public getHero$ = this.update$
+    .ofType(HeroActions.GET_HERO)
+    .switchMap(action => this.heroService.getHero(action.payload))
+    .map(hero => HeroActions.getHeroSuccess(hero));
 
 }
