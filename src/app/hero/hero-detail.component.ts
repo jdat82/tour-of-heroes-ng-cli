@@ -1,5 +1,5 @@
 import "rxjs/add/operator/switchMap";
-import { Component, OnInit, HostBinding, OnDestroy } from "@angular/core";
+import { Component, OnInit, HostBinding, OnDestroy, ChangeDetectionStrategy } from "@angular/core";
 import { Router, ActivatedRoute, Params } from "@angular/router";
 import { Hero } from "../core/hero/hero.model";
 import { slideInDownAnimation } from "../animations";
@@ -9,6 +9,7 @@ import { AppState } from "../root.reducer";
 import { Observable } from "rxjs";
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template:`
   <h2>HEROES</h2>
   <div *ngIf="hero$ | async; let hero;">

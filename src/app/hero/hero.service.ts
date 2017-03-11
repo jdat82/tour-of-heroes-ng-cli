@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable } from "rxjs";
+import { Hero } from "../core/hero/hero.model";
 
 
-let HEROES = [
+let HEROES:Hero[] = [
   {id:11, name:'Mr. Nice'},
   {id:12, name:'Narco'},
   {id:13, name:'Bombasto'},
@@ -15,13 +16,14 @@ let heroes$ = Observable.of(HEROES);
 
 @Injectable()
 export class HeroService {
+
   getHeroes() {
     return heroes$;
   }
 
   getHero(id:number | string) {
     return heroes$
-      .map(heroes => heroes.find(hero => hero.id === +id));
+      .map((heroes:Hero[]) => heroes.find(hero => hero.id === +id));
   }
 }
 

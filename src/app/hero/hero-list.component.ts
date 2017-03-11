@@ -1,12 +1,13 @@
 import "rxjs/add/operator/switchMap";
 import { Observable } from "rxjs/Observable";
-import { Component } from "@angular/core";
+import { Component, ChangeDetectionStrategy } from "@angular/core";
 import { Router } from "@angular/router";
 import { Store } from "@ngrx/store";
 import { Hero } from "../core/hero/hero.model";
 import { AppState } from "../root.reducer";
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template:`
     <h2>HEROES</h2>
     <ul class="items">
