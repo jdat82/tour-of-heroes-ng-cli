@@ -25,6 +25,11 @@ export class HeroService {
     return heroes$
       .map((heroes:Hero[]) => heroes.find(hero => hero.id === +id));
   }
+
+  // Noop : I don't have a backend and don't want one
+  saveHero(hero){
+      return Observable.of(hero);
+  }
 }
 
 
