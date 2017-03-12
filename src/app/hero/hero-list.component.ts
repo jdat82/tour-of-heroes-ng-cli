@@ -16,10 +16,7 @@ import { AppState } from "../root.reducer";
         (click)="onSelect(hero)">
         <span class="badge">{{ hero.id }}</span> {{ hero.name }}
       </li>
-    </ul>
-
-    <button routerLink="/sidekicks">Go to sidekicks</button>
-  `
+    </ul>`
 })
 export class HeroListComponent {
 
