@@ -9,10 +9,11 @@ import { HeroModule } from './hero/hero.module';
 import { CoreModule } from './core/core.module';
 import { LoginModule } from './authentication/login.module';
 import { environment } from '../environments/environment';
-import rootReducer from './root.reducer';
+import rootReducer from './core/root.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { HeroEffects } from './core/hero/hero.effect';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CovalentCoreModule } from '@covalent/core';
 
 console.info('Environment:', environment);
 
@@ -21,6 +22,7 @@ console.info('Environment:', environment);
   imports:[
     BrowserModule,
     BrowserAnimationsModule,
+    CovalentCoreModule,
     CoreModule,
     HeroModule,
     LoginModule,

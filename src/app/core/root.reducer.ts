@@ -16,9 +16,9 @@ import { storeFreeze } from 'ngrx-store-freeze';
 // More: https://egghead.io/lessons/javascript-redux-implementing-combinereducers-from-scratch
 import { combineReducers, ActionReducer, Action } from '@ngrx/store';
 
-import { HeroState, HeroListState } from "./core/hero/hero.state";
-import { environment } from "../environments/environment";
-import { heroListReducer, heroReducer } from "./core/hero/hero.reducer";
+import { HeroState, HeroListState } from "./hero/hero.state";
+import { environment } from "../../environments/environment";
+import { heroListReducer, heroReducer } from "./hero/hero.reducer";
 
 // This interface represents the whole app state and so our whole store.
 export interface AppState {

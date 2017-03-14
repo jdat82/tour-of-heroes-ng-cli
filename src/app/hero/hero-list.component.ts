@@ -4,7 +4,7 @@ import { Component, ChangeDetectionStrategy } from "@angular/core";
 import { Router } from "@angular/router";
 import { Store } from "@ngrx/store";
 import { Hero } from "../core/hero/hero.model";
-import { AppState } from "../root.reducer";
+import { AppState } from "../core/root.reducer";
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,

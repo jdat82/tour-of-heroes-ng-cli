@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import HeroActions from "./core/hero/hero.action";
 import { Store } from "@ngrx/store";
-import { AppState } from "./root.reducer";
+import { AppState } from "./core/root.reducer";
 
 @Component({
   selector: 'my-app',

@@ -5,7 +5,7 @@ import { Hero } from '../core/hero/hero.model';
 import { slideInDownAnimation } from '../animations';
 import { Store } from '@ngrx/store';
 import HeroActions from '../core/hero/hero.action';
-import { AppState } from '../root.reducer';
+import { AppState } from '../core/root.reducer';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -21,34 +21,34 @@ import { Observable } from 'rxjs';
     animations:[slideInDownAnimation]
 })
 export class HeroDetailComponent implements OnInit, OnDestroy {
-    
+
     @HostBinding('@routeAnimation') routeAnimation = true;
     @HostBinding('style.display') display = 'block';
     @HostBinding('style.position') position = 'absolute';
-    
+
     hero$:Observable<Hero>;
-    
+
     private paramsSub = null;
-    
+
     constructor(private route:ActivatedRoute, private router:Router, private store:Store<AppState>) {
         this.hero$ = this.store.select('hero');
     }
-    
+
     ngOnInit() {
         // (+) converts string 'id' to a number
         this.paramsSub = this.route.params.subscribe((params:Params) => {
             this.store.dispatch(HeroActions.getHero(params['id']))
         });
     }
-    
+
     ngOnDestroy() {
         this.paramsSub.unsubscribe();
     }
-    
+
     goBack() {
         window.history.back();
     }
-    
+
     saveHero(hero:Hero) {
         this.store.dispatch(HeroActions.saveHero(hero));
         this.goBack();

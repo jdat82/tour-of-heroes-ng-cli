@@ -1,12 +1,12 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { ComposeMessageComponent }  from './core/compose-message.component';
+import { ComposeMessageComponent }  from './core/compose-message/compose-message.component';
 import { PageNotFoundComponent }    from './core/not-found.component';
 
-import { CanDeactivateGuard }       from './can-deactivate-guard.service';
+import { CanDeactivateGuard }       from './core/routing/can-deactivate-guard.service';
 import { AuthGuard }                from './authentication/auth-guard.service';
-import { SelectivePreloadingStrategy } from './selective-preloading-strategy.service';
+import { SelectivePreloadingStrategy } from './core/routing/selective-preloading-strategy.service';
 
 const appRoutes: Routes = [
   {
