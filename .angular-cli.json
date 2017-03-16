@@ -18,9 +18,14 @@
       "tsconfig": "tsconfig.app.json",
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
+      "stylePreprocessorOptions": {
+        "includePaths": [
+          "app/theme"
+        ]
+      },
       "styles": [
-        "../node_modules/@covalent/core/common/platform.scss",
-        "app/app.scss"
+        "app/app.scss",
+        "../node_modules/@covalent/core/common/platform.scss"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

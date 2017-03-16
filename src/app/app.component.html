@@ -1,0 +1,16 @@
+<td-layout-nav toolbarTitle="Angular Router" color="primary" navigationRoute="/">
+  <nav td-toolbar-content class="nav">
+    <!--<span class="nav__title">Angular Router</span>-->
+    <a class="nav__item text-md push-sm" routerLink="/crisis-center" routerLinkActive="active">Crisis Center</a>
+    <a class="nav__item text-md push-sm" routerLink="/heroes" routerLinkActive="active">Heroes</a>
+    <a class="nav__item text-md push-sm" routerLink="/admin" routerLinkActive="active">Admin</a>
+    <a class="nav__item text-md push-sm" routerLink="/login" routerLinkActive="active">Login</a>
+    <a class="nav__item text-md push-sm" [routerLink]="[{ outlets: { popup: ['compose'] } }]">Contact</a>
+  </nav>
+  <router-outlet></router-outlet>
+  <router-outlet name="popup"></router-outlet>
+  <td-layout-footer class="pad-xs text-center text-md">
+    This is the traditional Tour of Heroes code better compliant with angular guidelines and adapted to ngrx/store and angular-material
+    (covalent).
+  </td-layout-footer>
+</td-layout-nav>

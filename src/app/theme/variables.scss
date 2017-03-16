@@ -1,0 +1,123 @@
+
+@import '~@angular/material/core/theming/all-theme';
+@import '~@covalent/core/theming/all-theme';
+
+// Include the base styles for Angular Material core. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue.
+$primary: mat-palette($mat-indigo, A700, A400, 700);
+
+// Args: color palette, default hue, lighter hue, darker hue
+$accent: mat-palette($mat-red, A400);
+
+// The warn palette is optional (defaults to red).
+$warn: mat-palette($mat-red, 600);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$theme: mat-light-theme($primary, $accent, $warn);
+
+$foreground: map-get($theme, foreground);
+$background: map-get($theme, background);
+
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($theme);
+@include covalent-theme($theme);
+
+
+
+/****************************************************************************
+
+What I understand from @angular/material code:
+----------------------------------------------
+
+Theme structure:
+(
+  primary: <color palette>,
+  accent: <color palette>,
+  warn: <color palette>,
+  is-dark: <boolean>,
+  foreground: <foreground palette>,
+  background: <background palette>,
+)
+
+Color palette (for instance $mat-red):
+(
+  50: #ffebee,
+  100: #ffcdd2,
+  200: #ef9a9a,
+  300: #e57373,
+  400: #ef5350,
+  500: #f44336,
+  600: #e53935,
+  700: #d32f2f,
+  800: #c62828,
+  900: #b71c1c,
+  A100: #ff8a80,
+  A200: #ff5252,
+  A400: #ff1744,
+  A700: #d50000,
+  contrast: (
+    50: $black-87-opacity,
+    100: $black-87-opacity,
+    200: $black-87-opacity,
+    300: $black-87-opacity,
+    400: $black-87-opacity,
+    500: white,
+    600: white,
+    700: white,
+    800: $white-87-opacity,
+    900: $white-87-opacity,
+    A100: $black-87-opacity,
+    A200: white,
+    A400: white,
+    A700: white,
+  )
+)
+
+Color palette ++ (same as a color palette enhanced with some aliases for lighter, darker, etc.):
+(
+  …
+  default: <couleur>,
+  lighter: <couleur>,
+  darker: <couleur>,
+  default-contrast: <couleur>,
+  lighter-contrast: <couleur>,
+  darker-contrast: <couleur>
+)
+
+Background palette (for instance $mat-light-theme-background):
+(
+  status-bar: map_get($mat-grey, 300),
+  app-bar:    map_get($mat-grey, 100),
+  background: map_get($mat-grey, 50),
+  hover:      rgba(black, 0.04),
+  card:       white,
+  dialog:     white,
+  disabled-button: rgba(black, 0.12),
+  raised-button: white,
+)
+
+Foreground palette (for instance $mat-light-theme-foreground):
+(
+  base:            black,
+  divider:         rgba(black, 0.12),
+  dividers:        rgba(black, 0.12),
+  disabled:        rgba(black, 0.38),
+  disabled-button: rgba(black, 0.38),
+  disabled-text:   rgba(black, 0.38),
+  hint-text:       rgba(black, 0.38),
+  secondary-text:  rgba(black, 0.54),
+  icon:            rgba(black, 0.54),
+  icons:           rgba(black, 0.54),
+  text:            rgba(black, 0.87)
+)
+
+****************************************************************************/
+

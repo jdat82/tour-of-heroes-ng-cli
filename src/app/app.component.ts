@@ -1,35 +1,48 @@
-import { Component, OnInit } from '@angular/core';
-import HeroActions from "./core/hero/hero.action";
-import { Store } from "@ngrx/store";
-import { AppState } from "./core/root.reducer";
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import HeroActions from './core/hero/hero.action';
+import { Store } from '@ngrx/store';
+import { AppState } from './core/root.reducer';
 
 @Component({
-  selector: 'my-app',
-  template: `
-    <h1 class="title">Angular Router</h1>
-    <nav>
-      <a routerLink="/crisis-center" routerLinkActive="active">Crisis Center</a>
-      <a routerLink="/heroes" routerLinkActive="active">Heroes</a>
-      <a routerLink="/admin" routerLinkActive="active">Admin</a>
-      <a routerLink="/login" routerLinkActive="active">Login</a>
-      <a [routerLink]="[{ outlets: { popup: ['compose'] } }]">Contact</a>
-    </nav>
-    <router-outlet></router-outlet>
-    <router-outlet name="popup"></router-outlet>
-  `
+  selector:'app',
+  styleUrls:['./app.component.scss'],
+  templateUrl:'./app.component.html'
 })
-export class AppComponent implements  OnInit {
+export class AppComponent implements OnInit {
 
-  constructor(private store:Store<AppState>){}
+  routes:Object[] = [{
+    title:'Dashboard',
+    route:'/',
+    icon:'dashboard',
+  }, {
+    title:'Product Dashboard',
+    route:'/product',
+    icon:'view_quilt',
+  }, {
+    title:'Product Logs',
+    route:'/logs',
+    icon:'receipt',
+  }, {
+    title:'Manage Users',
+    route:'/users',
+    icon:'people',
+  }, {
+    title:'Covalent Templates',
+    route:'/templates',
+    icon:'view_module',
+  },
+  ];
 
-  ngOnInit(){
+  constructor(private store:Store<AppState>) {}
+
+  ngOnInit() {
     this.store.dispatch(HeroActions.loadHeroes());
   }
 }
 
 
 /*
-Copyright 2017 Google Inc. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/
+ Copyright 2017 Google Inc. All Rights Reserved.
+ Use of this source code is governed by an MIT-style license that
+ can be found in the LICENSE file at http://angular.io/license
+ */

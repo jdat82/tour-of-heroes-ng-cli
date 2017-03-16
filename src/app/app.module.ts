@@ -22,7 +22,7 @@ console.info('Environment:', environment);
   imports:[
     BrowserModule,
     BrowserAnimationsModule,
-    CovalentCoreModule,
+    CovalentCoreModule.forRoot(),
     CoreModule,
     HeroModule,
     LoginModule,
