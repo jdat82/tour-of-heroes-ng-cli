@@ -14,6 +14,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { HeroEffects } from './core/hero/hero.effect';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CovalentCoreModule } from '@covalent/core';
+import 'hammerjs';
 
 console.info('Environment:', environment);
 
@@ -22,7 +23,7 @@ console.info('Environment:', environment);
   imports:[
     BrowserModule,
     BrowserAnimationsModule,
-    CovalentCoreModule.forRoot(),
+    CovalentCoreModule,
     CoreModule,
     HeroModule,
     LoginModule,
