@@ -5,11 +5,13 @@ import { ComposeMessageComponent } from "./compose-message/compose-message.compo
 import { FormsModule } from "@angular/forms";
 import { PageNotFoundComponent } from "./not-found.component";
 import { CommonModule } from "@angular/common";
+import { CovalentCoreModule } from '@covalent/core';
 
 @NgModule({
   imports:[
     CommonModule,
-    FormsModule
+    FormsModule,
+    CovalentCoreModule
   ],
   declarations:[
     ComposeMessageComponent,

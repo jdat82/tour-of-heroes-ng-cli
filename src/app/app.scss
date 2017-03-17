@@ -33,6 +33,16 @@ a {
   cursor: hand;
 }
 
+// Angular material overrides
+// ---------------------------------------------------
+
+.mat-input-placeholder.mat-float{
+  &.mat-focused,
+  &:not(.mat-empty) {
+    transform: translateY(-1.55em) scale(.75) !important
+  }
+}
+
 // Lists
 // ---------------------------------------------------
 
