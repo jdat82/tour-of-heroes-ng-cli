@@ -5,6 +5,9 @@ import { AppState } from './core/root.reducer';
 
 @Component({
   selector:'app',
+  host:{
+    layout: 'column'
+  },
   styleUrls:['./app.component.scss'],
   templateUrl:'./app.component.html'
 })

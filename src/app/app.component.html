@@ -1,16 +1,18 @@
-<td-layout-nav toolbarTitle="Tour of Heroes" color="primary" navigationRoute="/">
-  <nav td-toolbar-content class="nav">
-    <!--<span class="nav__title">Angular Router</span>-->
+<md-toolbar color="primary">
+  <h1 class="app__title">Angular Router</h1>
+  <!-- This fills the remaining space of the current row -->
+  <span class="fill-remaining-space"></span>
+  <nav class="nav" layout-align="space-between">
     <a class="nav__item text-md push-sm" routerLink="/crisis-center" routerLinkActive="active">Crisis Center</a>
     <a class="nav__item text-md push-sm" routerLink="/heroes" routerLinkActive="active">Heroes</a>
     <a class="nav__item text-md push-sm" routerLink="/admin" routerLinkActive="active">Admin</a>
     <a class="nav__item text-md push-sm" routerLink="/login" routerLinkActive="active">Login</a>
     <a class="nav__item text-md push-sm" [routerLink]="[{ outlets: { popup: ['compose'] } }]">Contact</a>
   </nav>
+  <md-toolbar-row class="app__subtitle">This is the traditional Tour of Heroes code better compliant with angular guidelines and adapted to ngrx/store and angular-material (covalent).</md-toolbar-row>
+</md-toolbar>
+
+<div class="app__content pad-md">
   <router-outlet></router-outlet>
   <router-outlet name="popup"></router-outlet>
-  <td-layout-footer class="pad-xs text-center text-md">
-    This is the traditional Tour of Heroes code better compliant with angular guidelines and adapted to ngrx/store and angular-material
-    (covalent).
-  </td-layout-footer>
-</td-layout-nav>
+</div>

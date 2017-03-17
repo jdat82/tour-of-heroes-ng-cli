@@ -11,8 +11,13 @@
 // Put style rules here that you want to apply globally. These
 // styles are for the entire app and not just one component.
 
-.mat-toolbar-row{
-  justify-content: space-between;
+//.mat-toolbar-row{
+//  justify-content: space-between;
+//}
+
+// This fills the remaining space in a flexbox container.
+.fill-remaining-space {
+  flex: 1 1 auto;
 }
 
 a {

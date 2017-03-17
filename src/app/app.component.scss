@@ -4,10 +4,17 @@
 // $title: mat-color($accent, A400);
 // $title: mat-color($accent, lighter);
 
-//.nav__title {
-//  font-size: 2rem;
-//  font-weight: bold;
-//}
+.app__title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.app__subtitle{
+  font-style: italic;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
 
 .nav__item {
   color: $white-87-opacity;
