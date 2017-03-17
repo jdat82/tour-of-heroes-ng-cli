@@ -6,41 +6,39 @@ import { Crisis }         from './crisis.service';
 import { DialogService }  from '../core/dialog.service';
 
 @Component({
-  template: `
-  <div *ngIf="crisis">
-    <h3>"{{ editName }}"</h3>
-    <div>
-      <label>Id: </label>{{ crisis.id }}</div>
-    <div>
-      <label>Name: </label>
-      <input [(ngModel)]="editName" placeholder="name"/>
-    </div>
-    <p>
-      <button (click)="save()">Save</button>
-      <button (click)="cancel()">Cancel</button>
-    </p>
-  </div>
+  template:`
+  <md-card *ngIf="crisis">
+    <md-card-title>{{ editName }}</md-card-title>
+    <md-card-content>
+      <p><label>Id: </label>{{ crisis.id }}</p>
+      <md-input-container>
+        <input mdInput [(ngModel)]="editName" placeholder="Name"/>
+      </md-input-container>
+    </md-card-content>
+    <md-card-actions>
+      <button md-button (click)="save()">Save</button>
+      <button md-button (click)="cancel()">Cancel</button>
+    </md-card-actions>
+  </md-card>
   `,
-  styles: ['input {width: 20em}'],
-  animations: [ slideInDownAnimation ]
+  styles:['input {width: 20em}'],
+  animations:[slideInDownAnimation]
 })
 export class CrisisDetailComponent implements OnInit {
   @HostBinding('@routeAnimation') routeAnimation = true;
-  @HostBinding('style.display')   display = 'block';
-  @HostBinding('style.position')  position = 'absolute';
+  @HostBinding('style.display') display = 'block';
+  @HostBinding('style.position') position = 'absolute';
 
-  crisis: Crisis;
-  editName: string;
+  crisis:Crisis;
+  editName:string;
 
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    public dialogService: DialogService
-  ) {}
+  constructor(private route:ActivatedRoute,
+              private router:Router,
+              public dialogService:DialogService) {}
 
   ngOnInit() {
     this.route.data
-      .subscribe((data: { crisis: Crisis }) => {
+      .subscribe((data:{ crisis:Crisis }) => {
         this.editName = data.crisis.name;
         this.crisis = data.crisis;
       });
@@ -55,7 +53,7 @@ export class CrisisDetailComponent implements OnInit {
     this.gotoCrises();
   }
 
-  canDeactivate(): Promise<boolean> | boolean {
+  canDeactivate():Promise<boolean> | boolean {
     // Allow synchronous navigation (`true`) if no crisis or the crisis is unchanged
     if (!this.crisis || this.crisis.name === this.editName) {
       return true;
@@ -71,13 +69,13 @@ export class CrisisDetailComponent implements OnInit {
     // so that the CrisisListComponent can select that crisis.
     // Add a totally useless `foo` parameter for kicks.
     // Relative navigation back to the crises
-    this.router.navigate(['../', { id: crisisId, foo: 'foo' }], { relativeTo: this.route });
+    this.router.navigate(['../', { id:crisisId, foo:'foo' }], { relativeTo:this.route });
   }
 }
 
 
 /*
-Copyright 2017 Google Inc. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/
+ Copyright 2017 Google Inc. All Rights Reserved.
+ Use of this source code is governed by an MIT-style license that
+ can be found in the LICENSE file at http://angular.io/license
+ */

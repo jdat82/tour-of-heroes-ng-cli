@@ -10,12 +10,14 @@ import { CrisisCenterHomeComponent } from './crisis-center-home.component';
 import { CrisisDetailComponent }     from './crisis-detail.component';
 
 import { CrisisCenterRoutingModule } from './crisis-center-routing.module';
+import { CovalentCoreModule } from '@covalent/core';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    CrisisCenterRoutingModule
+    CrisisCenterRoutingModule,
+    CovalentCoreModule
   ],
   declarations: [
     CrisisCenterComponent,
