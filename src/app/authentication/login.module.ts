@@ -4,11 +4,13 @@ import { AuthService }          from './auth.service';
 import { LoginComponent }       from './login.component';
 import { CommonModule } from "@angular/common";
 import { LoginRoutingModule } from "./login-routing.module";
+import { CovalentCoreModule } from '@covalent/core';
 
 @NgModule({
   imports: [
     CommonModule,
-    LoginRoutingModule
+    LoginRoutingModule,
+    CovalentCoreModule
   ],
   declarations: [
     LoginComponent
