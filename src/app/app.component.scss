@@ -9,20 +9,37 @@
   font-weight: bold;
 }
 
-.app__subtitle{
+.app__subtitle {
   font-style: italic;
   font-size: 0.9rem;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
 
-.app__contact{
+.app__contact {
   position: fixed;
   bottom: 50px;
   right: 50px;
 }
 
-.nav__item {
+.app__menu {
+  line-height: 2.7rem;
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+.nav-toolbar__nav-item {
   color: $white-87-opacity;
   text-decoration: none;
+}
+
+.sidenav {
+  width: 200px;
+  text-align: center;
+}
+
+.sidenav__nav-item {
+  width: 100%;
+  border: 0px;
+  outline: 0px;
 }

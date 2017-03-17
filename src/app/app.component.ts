@@ -5,36 +5,28 @@ import { AppState } from './core/root.reducer';
 
 @Component({
   selector:'app',
-  host:{
-    layout: 'column'
-  },
   styleUrls:['./app.component.scss'],
   templateUrl:'./app.component.html'
 })
 export class AppComponent implements OnInit {
 
   routes:Object[] = [{
-    title:'Dashboard',
-    route:'/',
-    icon:'dashboard',
+    title:'Crisis',
+    route:'/crisis-center',
+    icon:'',
   }, {
-    title:'Product Dashboard',
-    route:'/product',
-    icon:'view_quilt',
+    title:'Heroes',
+    route:'/heroes',
+    icon:'',
   }, {
-    title:'Product Logs',
-    route:'/logs',
-    icon:'receipt',
+    title:'Admin',
+    route:'/admin',
+    icon:'',
   }, {
-    title:'Manage Users',
-    route:'/users',
-    icon:'people',
-  }, {
-    title:'Covalent Templates',
-    route:'/templates',
-    icon:'view_module',
-  },
-  ];
+    title:'Login',
+    route:'/login',
+    icon:'',
+  }];
 
   constructor(private store:Store<AppState>) {}
 

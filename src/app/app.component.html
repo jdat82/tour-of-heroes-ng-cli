@@ -1,21 +1,44 @@
-<md-toolbar color="primary">
-  <h1 class="app__title">Angular Router</h1>
-  <!-- This fills the remaining space of the current row -->
-  <span class="fill-remaining-space"></span>
-  <nav class="nav" layout-align="space-between">
-    <a class="nav__item text-md push-sm" routerLink="/crisis-center" routerLinkActive="active">Crisis Center</a>
-    <a class="nav__item text-md push-sm" routerLink="/heroes" routerLinkActive="active">Heroes</a>
-    <a class="nav__item text-md push-sm" routerLink="/admin" routerLinkActive="active">Admin</a>
-    <a class="nav__item text-md push-sm" routerLink="/login" routerLinkActive="active">Login</a>
-  </nav>
-  <md-toolbar-row class="app__subtitle">This is the traditional Tour of Heroes code better compliant with angular guidelines and adapted to ngrx/store and angular-material (covalent).</md-toolbar-row>
-</md-toolbar>
+<md-sidenav-container class="sidenav-container">
 
-<div class="app__content pad-md">
-  <router-outlet></router-outlet>
-  <router-outlet name="popup"></router-outlet>
-</div>
+  <!--Left menu containing nav links-->
+  <md-sidenav #sidenav mode="push" class="sidenav">
+    <h1 class="app__title text-caps text-center">Menu</h1>
+    <md-divider></md-divider>
+    <md-nav-list>
+      <md-list-item *ngFor="let routeItem of routes; trackBy: route">
+        <a routerLink="{{routeItem.route}}" routerLinkActive="active" class="sidenav__nav-item"
+           (click)="sidenav.close()">{{routeItem.title}}</a>
+        <md-divider></md-divider>
+      </md-list-item>
+    </md-nav-list>
+  </md-sidenav>
 
-<a md-fab class="app__contact" [routerLink]="[{ outlets: { popup: ['compose'] } }]">
-  <md-icon class="md-36">perm_contact_calendar</md-icon>
-</a>
+  <!--Contains the main page with its toolbar and main router outlet-->
+  <div class="sidenav__target-container" layout="column">
+
+    <md-toolbar color="primary">
+      <md-icon (click)="sidenav.toggle()" class="app__menu md-36">menu</md-icon>
+      <h1 class="app__title">Angular Router</h1>
+      <!-- This fills the remaining space of the current row -->
+      <span class="fill-remaining-space"></span>
+      <nav class="nav-toolbar" layout-align="space-between">
+        <a *ngFor="let routeItem of routes; trackBy: route" class="nav-toolbar__nav-item text-md push-sm" routerLink="{{routeItem.route}}"
+           routerLinkActive="active">{{routeItem.title}}</a>
+      </nav>
+      <md-toolbar-row class="app__subtitle">This is the traditional Tour of Heroes code better compliant with angular guidelines and adapted
+        to ngrx/store and angular-material (covalent).
+      </md-toolbar-row>
+    </md-toolbar>
+
+    <div class="app__content pad-md">
+      <router-outlet></router-outlet>
+      <router-outlet name="popup"></router-outlet>
+    </div>
+
+    <a md-fab class="app__contact" [routerLink]="[{ outlets: { popup: ['compose'] } }]">
+      <md-icon class="md-36">perm_contact_calendar</md-icon>
+    </a>
+
+  </div>
+
+</md-sidenav-container>
