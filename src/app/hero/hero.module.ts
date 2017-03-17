@@ -6,21 +6,23 @@ import { HeroDetailComponent } from './hero-detail.component';
 import { HeroService } from './hero.service';
 import { HeroRoutingModule } from './hero-routing.module';
 import { HeroDetailFormComponent } from './hero-detail-form.component';
+import { CovalentCoreModule } from '@covalent/core';
 
 @NgModule({
-    imports:[
-        CommonModule,
-        FormsModule,
-        HeroRoutingModule
-    ],
-    declarations:[
-        HeroListComponent,
-        HeroDetailComponent,
-        HeroDetailFormComponent
-    ],
-    providers:[
-        HeroService
-    ]
+  imports:[
+    CommonModule,
+    FormsModule,
+    CovalentCoreModule,
+    HeroRoutingModule
+  ],
+  declarations:[
+    HeroListComponent,
+    HeroDetailComponent,
+    HeroDetailFormComponent
+  ],
+  providers:[
+    HeroService
+  ]
 })
 export class HeroModule {
 }
