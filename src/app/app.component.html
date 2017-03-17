@@ -7,7 +7,6 @@
     <a class="nav__item text-md push-sm" routerLink="/heroes" routerLinkActive="active">Heroes</a>
     <a class="nav__item text-md push-sm" routerLink="/admin" routerLinkActive="active">Admin</a>
     <a class="nav__item text-md push-sm" routerLink="/login" routerLinkActive="active">Login</a>
-    <a class="nav__item text-md push-sm" [routerLink]="[{ outlets: { popup: ['compose'] } }]">Contact</a>
   </nav>
   <md-toolbar-row class="app__subtitle">This is the traditional Tour of Heroes code better compliant with angular guidelines and adapted to ngrx/store and angular-material (covalent).</md-toolbar-row>
 </md-toolbar>
@@ -16,3 +15,7 @@
   <router-outlet></router-outlet>
   <router-outlet name="popup"></router-outlet>
 </div>
+
+<a md-fab class="app__contact" [routerLink]="[{ outlets: { popup: ['compose'] } }]">
+  <md-icon class="md-36">perm_contact_calendar</md-icon>
+</a>

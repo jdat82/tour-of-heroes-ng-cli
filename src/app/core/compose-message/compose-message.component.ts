@@ -5,7 +5,7 @@ import { slideInDownAnimation }   from '../../animations';
 
 @Component({
   templateUrl: './compose-message.component.html',
-  styles: [ ':host { position: fixed; bottom: 50px; right: 50px }' ],
+  styles: [ ':host { position: fixed; bottom: 100px; right: 50px }' ],
   animations: [ slideInDownAnimation ]
 })
 export class ComposeMessageComponent {

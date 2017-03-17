@@ -16,6 +16,12 @@
   text-overflow: ellipsis;
 }
 
+.app__contact{
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+}
+
 .nav__item {
   color: $white-87-opacity;
   text-decoration: none;
