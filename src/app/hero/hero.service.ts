@@ -1,35 +1,41 @@
 import { Injectable } from '@angular/core';
-import { Observable } from "rxjs";
-import { Hero } from "../core/hero/hero.model";
+import { Observable } from 'rxjs';
+import { Hero } from '../core/hero/hero.model';
+import { AppState } from '../core/root.reducer';
+import { Store } from '@ngrx/store';
 
 
-let HEROES:Hero[] = [
-  {id:11, name:'Mr. Nice'},
-  {id:12, name:'Narco'},
-  {id:13, name:'Bombasto'},
-  {id:14, name:'Celeritas'},
-  {id:15, name:'Magneta'},
-  {id:16, name:'RubberMan'}
+const HEROES:Hero[] = [
+    { id:11, name:'Mr. Nice' },
+    { id:12, name:'Narco' },
+    { id:13, name:'Bombasto' },
+    { id:14, name:'Celeritas' },
+    { id:15, name:'Magneta' },
+    { id:16, name:'RubberMan' }
 ];
 
-let heroes$ = Observable.of(HEROES);
+const heroes$ = Observable.of(HEROES);
 
 @Injectable()
 export class HeroService {
 
-  getHeroes() {
-    return heroes$;
-  }
+    constructor(private store:Store<AppState>) {}
 
-  getHero(id:number | string) {
-    return heroes$
-      .map((heroes:Hero[]) => heroes.find(hero => hero.id === +id));
-  }
+    // Simulate loading heroes from a backend.
+    getHeroes() {
+        return heroes$;
+    }
 
-  // Noop : I don't have a backend and don't want one
-  saveHero(hero){
-      return Observable.of(hero);
-  }
+    // Find a hero in the store.
+    getHero(id:number | string) {
+        return this.store.select('heroList')
+            .map((heroes:Hero[]) => heroes.find((hero:Hero) => hero.id === +id));
+    }
+
+    // Noop : I don't have a backend right now
+    saveHero(hero) {
+        return Observable.of(hero);
+    }
 }
 
 
