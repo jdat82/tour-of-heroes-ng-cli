@@ -37,6 +37,10 @@ export class HeroDetailComponent implements OnInit, OnDestroy {
     ngOnInit() {
         // (+) converts string 'id' to a number
         this.paramsSub = this.route.params.subscribe((params:Params) => {
+            // In a true app, we would probably not have used the store for this use case.
+            // There is little value in storing the current hero in the store.
+            // Thus we would probably have use heroService directly.
+            // But I wanted to illustrate a reactive workflow where an edited artefact comes from the store and trigger an effect.
             this.store.dispatch(HeroActions.getHero(params['id']))
         });
     }
