@@ -1,53 +1,59 @@
-import { Component, OnInit }    from '@angular/core';
-import { ActivatedRoute }       from '@angular/router';
-import { Observable }           from 'rxjs/Observable';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
 
 import { SelectivePreloadingStrategy } from '../core/routing/selective-preloading-strategy.service';
 
 import 'rxjs/add/operator/map';
 
 @Component({
-  template:  `
-    <p>Dashboard</p>
-
-    <p>Session ID: {{ sessionId | async }}</p>
-    <a id="anchor"></a>
-    <p>Token: {{ token | async }}</p>
-
-    Preloaded Modules
-    <ul>
-      <li *ngFor="let module of modules">{{ module }}</li>
-    </ul>
-  `
+    changeDetection:ChangeDetectionStrategy.OnPush,
+    template:`
+        <p>Dashboard</p>
+    
+        <p>Session ID: {{ sessionId | async }}</p>
+        <a id="anchor"></a>
+        <p>Token: {{ token | async }}</p>
+    
+        Preloaded Modules
+        <ul>
+          <li *ngFor="let module of modules">{{ module }}</li>
+        </ul>
+      `
 })
 export class AdminDashboardComponent implements OnInit {
-  sessionId: Observable<string>;
-  token: Observable<string>;
-  modules: string[];
 
-  constructor(
-    private route: ActivatedRoute,
-    private preloadStrategy: SelectivePreloadingStrategy
-  ) {
-    this.modules = preloadStrategy.preloadedModules;
-  }
+    sessionId:Observable<string>;
+    token:Observable<string>;
+    modules:string[];
 
-  ngOnInit() {
-    // Capture the session ID if available
-    this.sessionId = this.route
-      .queryParams
-      .map(params => params['session_id'] || 'None');
+    constructor(private route:ActivatedRoute,
+                private preloadStrategy:SelectivePreloadingStrategy,
+                private cd:ChangeDetectorRef)
+    {
+        this.modules = preloadStrategy.preloadedModules;
+    }
 
-    // Capture the fragment if available
-    this.token = this.route
-      .fragment
-      .map(fragment => fragment || 'None');
-  }
+    ngOnInit() {
+        // Capture the session ID if available
+        this.sessionId = this.route
+            .queryParams
+            .map(params => params['session_id'] || 'None');
+
+        // Capture the fragment if available
+        this.token = this.route
+            .fragment
+            .map(fragment => fragment || 'None');
+
+        this.cd.markForCheck();
+
+        console.log('Changes pushed');
+    }
 }
 
 
 /*
-Copyright 2017 Google Inc. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/
+ Copyright 2017 Google Inc. All Rights Reserved.
+ Use of this source code is governed by an MIT-style license that
+ can be found in the LICENSE file at http://angular.io/license
+ */

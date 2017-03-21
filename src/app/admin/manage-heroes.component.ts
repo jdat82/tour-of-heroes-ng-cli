@@ -1,15 +1,17 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  template:  `
+    changeDetection:ChangeDetectionStrategy.OnPush,
+    template:`
     <p>Manage your heroes here</p>
   `
 })
-export class ManageHeroesComponent { }
+export class ManageHeroesComponent {
+}
 
 
 /*
-Copyright 2017 Google Inc. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/
+ Copyright 2017 Google Inc. All Rights Reserved.
+ Use of this source code is governed by an MIT-style license that
+ can be found in the LICENSE file at http://angular.io/license
+ */

@@ -1,13 +1,14 @@
 import 'rxjs/add/operator/switchMap';
-import { Component, OnInit }      from '@angular/core';
-import { ActivatedRoute, Router, Params } from '@angular/router';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
-import { Observable }            from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
 
 import { Crisis, CrisisService } from './crisis.service';
 
 @Component({
-  template: `
+    changeDetection:ChangeDetectionStrategy.OnPush,
+    template:`
     <ul class="items">
       <li *ngFor="let crisis of crises | async"
         (click)="onSelect(crisis)"
@@ -21,38 +22,36 @@ import { Crisis, CrisisService } from './crisis.service';
   `
 })
 export class CrisisListComponent implements OnInit {
-  crises: Observable<Crisis[]>;
-  selectedId: number;
+    crises:Observable<Crisis[]>;
+    selectedId:number;
 
-  constructor(
-    private service: CrisisService,
-    private route: ActivatedRoute,
-    private router: Router
-  ) {}
+    constructor(private service:CrisisService,
+                private route:ActivatedRoute,
+                private router:Router) {}
 
-  isSelected(crisis: Crisis) {
-    return crisis.id === this.selectedId;
-  }
+    isSelected(crisis:Crisis) {
+        return crisis.id === this.selectedId;
+    }
 
-  ngOnInit() {
-    this.crises = this.route.params
-      .switchMap((params: Params) => {
-        this.selectedId = +params['id'];
-        return this.service.getCrises();
-      });
-  }
+    ngOnInit() {
+        this.crises = this.route.params
+            .switchMap((params:Params) => {
+                this.selectedId = +params['id'];
+                return this.service.getCrises();
+            });
+    }
 
-  onSelect(crisis: Crisis) {
-    this.selectedId = crisis.id;
+    onSelect(crisis:Crisis) {
+        this.selectedId = crisis.id;
 
-    // Navigate with relative link
-    this.router.navigate([crisis.id], { relativeTo: this.route });
-  }
+        // Navigate with relative link
+        this.router.navigate([crisis.id], { relativeTo:this.route });
+    }
 }
 
 
 /*
-Copyright 2017 Google Inc. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/
+ Copyright 2017 Google Inc. All Rights Reserved.
+ Use of this source code is governed by an MIT-style license that
+ can be found in the LICENSE file at http://angular.io/license
+ */

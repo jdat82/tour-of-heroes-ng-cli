@@ -1,8 +1,9 @@
-import { Component, Input, EventEmitter, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { Hero } from '../core/hero/hero.model';
 
 @Component({
     selector:'hero-detail-form',
+    changeDetection:ChangeDetectionStrategy.OnPush,
     templateUrl:'hero-detail-form.component.html'
 })
 export class HeroDetailFormComponent {

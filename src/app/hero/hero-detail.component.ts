@@ -11,13 +11,13 @@ import { Observable } from 'rxjs';
 @Component({
     changeDetection:ChangeDetectionStrategy.OnPush,
     template:`
-    <h2>HEROES</h2>
-    <hero-detail-form 
-        [hero]="hero$ | async"
-        (back)="goBack()"
-        (save)="saveHero($event)"
-        ></hero-detail-form>
-  `,
+        <h2>HEROES</h2>
+        <hero-detail-form 
+            [hero]="hero$ | async"
+            (back)="goBack()"
+            (save)="saveHero($event)"
+            ></hero-detail-form>
+      `,
     animations:[slideInDownAnimation]
 })
 export class HeroDetailComponent implements OnInit, OnDestroy {
